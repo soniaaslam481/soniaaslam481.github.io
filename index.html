@@ -3,672 +3,212 @@
 <head>
   <meta charset="UTF-8"/>
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Sonia Aslam — Electrical Engineer & AI Developer</title>
+  <title>Sonia Aslam — Portfolio</title>
+
   <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display&family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet"/>
+
   <style>
-    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    * { box-sizing: border-box; margin: 0; padding: 0; }
 
-    :root {
-      --navy:      #0f2040;
-      --navy-mid:  #1a3560;
-      --gold:      #c8922a;
-      --gold-lt:   #f0c96e;
-      --bg:        #f7f8fa;
-      --white:     #ffffff;
-      --text:      #1a1f2e;
-      --body:      #3d4559;
-      --muted:     #7a8299;
-      --border:    #e3e7ef;
-      --tag-bg:    #eef1f7;
-      --font-serif: 'DM Serif Display', serif;
-      --font-sans:  'Inter', sans-serif;
-      --font-mono:  'JetBrains Mono', monospace;
+    html {
+      scroll-behavior: smooth;
     }
 
-    html { scroll-behavior: smooth; }
     body {
-      background: var(--bg);
-      color: var(--text);
-      font-family: var(--font-sans);
-      line-height: 1.65;
+      font-family: 'Inter', sans-serif;
+      background: #f7f8fa;
+      color: #1a1f2e;
+      line-height: 1.6;
     }
 
-    /* ── NAV ── */
+    /* NAV */
     nav {
-      position: fixed; top: 0; left: 0; right: 0; z-index: 200;
-      background: var(--white);
-      border-bottom: 1px solid var(--border);
-      display: flex; align-items: center; justify-content: space-between;
-      padding: 0 2.5rem;
-      height: 60px;
-    }
-    .nav-name {
-      font-family: var(--font-serif);
-      font-size: 1.15rem;
-      color: var(--navy);
-      letter-spacing: .01em;
-    }
-    .nav-links { display: flex; gap: 0; list-style: none; }
-    .nav-links a {
-      display: block;
-      padding: .4rem .9rem;
-      font-size: .82rem;
-      font-weight: 500;
-      color: var(--muted);
-      text-decoration: none;
-      letter-spacing: .03em;
-      text-transform: uppercase;
-      transition: color .18s;
-    }
-    .nav-links a:hover { color: var(--navy); }
-
-    /* ── HERO ── */
-    .hero {
-      background: var(--navy);
-      padding: 8rem 2.5rem 5rem;
-      position: relative;
-      overflow: hidden;
-    }
-    /* Subtle circuit-board pattern using CSS */
-    .hero::before {
-      content: '';
-      position: absolute; inset: 0;
-      background-image:
-        repeating-linear-gradient(0deg, transparent, transparent 47px, rgba(255,255,255,.03) 47px, rgba(255,255,255,.03) 48px),
-        repeating-linear-gradient(90deg, transparent, transparent 47px, rgba(255,255,255,.03) 47px, rgba(255,255,255,.03) 48px);
-      pointer-events: none;
-    }
-    .hero::after {
-      content: '';
-      position: absolute;
-      right: -100px; top: -100px;
-      width: 500px; height: 500px;
-      background: radial-gradient(circle, rgba(200,146,42,.12) 0%, transparent 65%);
-      pointer-events: none;
-    }
-    .hero-inner {
-      max-width: 960px; margin: 0 auto;
-      display: grid;
-      grid-template-columns: 1fr auto;
-      gap: 3rem;
-      align-items: center;
-      position: relative; z-index: 1;
-    }
-    .hero-eyebrow {
-      display: flex; align-items: center; gap: .6rem;
-      margin-bottom: 1.4rem;
-    }
-    .hero-eyebrow-line {
-      width: 28px; height: 2px;
-      background: var(--gold);
-    }
-    .hero-eyebrow span {
-      font-family: var(--font-mono);
-      font-size: .7rem;
-      color: var(--gold);
-      letter-spacing: .15em;
-      text-transform: uppercase;
-    }
-    .hero h1 {
-      font-family: var(--font-serif);
-      font-size: clamp(2.4rem, 5.5vw, 4rem);
-      color: var(--white);
-      line-height: 1.08;
-      margin-bottom: 1.2rem;
-      letter-spacing: -.01em;
-    }
-    .hero-sub {
-      font-size: 1rem;
-      color: rgba(255,255,255,.55);
-      max-width: 480px;
-      line-height: 1.75;
-      margin-bottom: 2rem;
-    }
-    .hero-pills { display: flex; gap: .5rem; flex-wrap: wrap; }
-    .pill {
-      font-size: .72rem;
-      font-family: var(--font-mono);
-      padding: .3rem .75rem;
-      border-radius: 2rem;
-      border: 1px solid rgba(200,146,42,.35);
-      color: var(--gold-lt);
-      letter-spacing: .05em;
-    }
-
-    /* Avatar */
-    .hero-avatar {
-      width: 130px; height: 130px;
-      background: linear-gradient(135deg, var(--navy-mid), #2a4a80);
-      border: 3px solid rgba(200,146,42,.4);
-      border-radius: 50%;
-      display: flex; align-items: center; justify-content: center;
-      flex-shrink: 0;
-    }
-    .hero-avatar span {
-      font-family: var(--font-serif);
-      font-size: 2.8rem;
-      color: var(--gold-lt);
-    }
-
-    /* ── STATS BAR ── */
-    .stats-bar {
-      background: var(--white);
-      border-bottom: 1px solid var(--border);
-    }
-    .stats-bar-inner {
-      max-width: 960px; margin: 0 auto;
+      position: fixed;
+      top: 0;
+      width: 100%;
+      background: white;
+      padding: 15px 30px;
       display: flex;
-      padding: 1.5rem 2.5rem;
-      gap: 0;
-    }
-    .stat {
-      flex: 1;
-      padding: 0 2rem;
-      border-right: 1px solid var(--border);
-    }
-    .stat:first-child { padding-left: 0; }
-    .stat:last-child { border-right: none; }
-    .stat-val {
-      font-family: var(--font-serif);
-      font-size: 1.7rem;
-      color: var(--navy);
-      line-height: 1;
-      margin-bottom: .25rem;
-    }
-    .stat-val em { font-style: normal; color: var(--gold); }
-    .stat-label { font-size: .75rem; color: var(--muted); font-weight: 500; letter-spacing: .04em; text-transform: uppercase; }
-
-    /* ── MAIN LAYOUT ── */
-    .main-grid {
-      max-width: 960px; margin: 0 auto;
-      padding: 3.5rem 2.5rem;
-      display: grid;
-      grid-template-columns: 1fr 280px;
-      gap: 3rem;
-      align-items: start;
-    }
-    .main-left {}
-    .main-right {}
-
-    /* ── SECTION HEADERS ── */
-    .sec-head {
-      display: flex; align-items: center; gap: 1rem;
-      margin-bottom: 1.75rem;
-    }
-    .sec-head h2 {
-      font-family: var(--font-serif);
-      font-size: 1.5rem;
-      color: var(--navy);
-      white-space: nowrap;
-    }
-    .sec-head-rule {
-      flex: 1; height: 1px;
-      background: var(--border);
+      justify-content: space-between;
+      border-bottom: 1px solid #e3e7ef;
+      z-index: 1000;
     }
 
-    /* ── PROJECT CARDS ── */
-    .project-card {
-      background: var(--white);
-      border: 1px solid var(--border);
-      border-radius: .5rem;
-      padding: 1.5rem;
-      margin-bottom: 1rem;
-      transition: box-shadow .2s, border-color .2s;
-    }
-    .project-card:hover {
-      box-shadow: 0 4px 20px rgba(15,32,64,.08);
-      border-color: rgba(200,146,42,.3);
-    }
-    .project-header {
-      display: flex; align-items: flex-start; justify-content: space-between;
-      gap: 1rem; margin-bottom: .6rem;
-    }
-    .project-header h3 {
-      font-size: 1rem; font-weight: 600; color: var(--navy);
-    }
-    .project-icon-badge {
-      font-size: 1.2rem;
-      width: 2.2rem; height: 2.2rem;
-      background: var(--tag-bg);
-      border-radius: .35rem;
-      display: flex; align-items: center; justify-content: center;
-      flex-shrink: 0;
-    }
-    .project-card p {
-      font-size: .88rem; color: var(--body); line-height: 1.7;
-      margin-bottom: 1rem;
-    }
-    .tags { display: flex; flex-wrap: wrap; gap: .35rem; }
-    .tag {
-      font-family: var(--font-mono);
-      font-size: .65rem;
-      padding: .2rem .55rem;
-      background: var(--tag-bg);
-      color: var(--navy-mid);
-      border-radius: .2rem;
-      font-weight: 500;
+    .nav-links a {
+      margin: 0 10px;
+      text-decoration: none;
+      color: #555;
+      transition: 0.3s;
     }
 
-    /* ── TIMELINE (Experience) ── */
-    .timeline { display: flex; flex-direction: column; gap: 1.5rem; margin-bottom: 2.5rem; }
-    .tl-item {
-      display: grid; grid-template-columns: 10px 1fr; gap: 1rem;
-      align-items: start;
-    }
-    .tl-dot {
-      width: 10px; height: 10px; border-radius: 50%;
-      background: var(--gold);
-      margin-top: .4rem;
-      flex-shrink: 0;
-      box-shadow: 0 0 0 3px rgba(200,146,42,.15);
-    }
-    .tl-body h3 { font-size: .95rem; font-weight: 600; color: var(--navy); margin-bottom: .1rem; }
-    .tl-org { font-size: .8rem; color: var(--gold); font-weight: 500; margin-bottom: .6rem; }
-    .tl-date {
-      font-family: var(--font-mono);
-      font-size: .68rem; color: var(--muted);
-      background: var(--tag-bg);
-      padding: .15rem .5rem; border-radius: .2rem;
-      display: inline-block; margin-bottom: .6rem;
-    }
-    .tl-body ul { list-style: none; display: flex; flex-direction: column; gap: .3rem; }
-    .tl-body li {
-      font-size: .85rem; color: var(--body);
-      padding-left: .9rem; position: relative;
-    }
-    .tl-body li::before {
-      content: '–'; position: absolute; left: 0; color: var(--gold);
+    .nav-links a:hover {
+      color: #c8922a;
+      transform: translateY(-2px);
     }
 
-    /* ── SIDEBAR WIDGETS ── */
-    .widget {
-      background: var(--white);
-      border: 1px solid var(--border);
-      border-radius: .5rem;
-      padding: 1.35rem;
-      margin-bottom: 1.25rem;
-    }
-    .widget h3 {
-      font-size: .7rem;
-      font-weight: 600;
-      letter-spacing: .1em;
-      text-transform: uppercase;
-      color: var(--muted);
-      margin-bottom: 1rem;
-      padding-bottom: .6rem;
-      border-bottom: 1px solid var(--border);
-    }
-    .skill-group { margin-bottom: 1rem; }
-    .skill-group:last-child { margin-bottom: 0; }
-    .skill-group-label {
-      font-size: .7rem; font-weight: 600; color: var(--navy);
-      margin-bottom: .4rem; letter-spacing: .04em;
-    }
-    .skill-pills { display: flex; flex-wrap: wrap; gap: .3rem; }
-    .skill-pill {
-      font-family: var(--font-mono);
-      font-size: .64rem;
-      padding: .2rem .5rem;
-      background: var(--tag-bg);
-      color: var(--navy-mid);
-      border-radius: .2rem;
-    }
-
-    .contact-item {
-      display: flex; align-items: center; gap: .6rem;
-      padding: .5rem 0;
-      border-bottom: 1px solid var(--border);
-      font-size: .82rem;
-      color: var(--body);
-    }
-    .contact-item:last-child { border-bottom: none; padding-bottom: 0; }
-    .contact-item a { color: var(--navy); text-decoration: none; font-weight: 500; }
-    .contact-item a:hover { color: var(--gold); }
-    .contact-icon { font-size: .9rem; width: 1.2rem; text-align: center; }
-
-    .honor-item {
-      display: flex; gap: .6rem; align-items: flex-start;
-      padding: .5rem 0; border-bottom: 1px solid var(--border);
-      font-size: .82rem; color: var(--body);
-    }
-    .honor-item:last-child { border-bottom: none; }
-    .honor-star { color: var(--gold); font-size: .9rem; flex-shrink: 0; }
-
-    /* ── EDU CARD ── */
-    .edu-card {
-      background: var(--navy);
-      border-radius: .5rem;
-      padding: 1.5rem;
-      margin-bottom: 2.5rem;
-      position: relative; overflow: hidden;
-    }
-    .edu-card::after {
-      content: 'EE';
-      position: absolute; right: 1.5rem; top: 50%;
-      transform: translateY(-50%);
-      font-family: var(--font-serif);
-      font-size: 4.5rem;
-      color: rgba(255,255,255,.05);
-      pointer-events: none;
-    }
-    .edu-card .degree { font-family: var(--font-serif); font-size: 1.2rem; color: var(--white); margin-bottom: .3rem; }
-    .edu-card .school { font-size: .85rem; color: var(--gold-lt); margin-bottom: .4rem; font-weight: 500; }
-    .edu-card .period { font-family: var(--font-mono); font-size: .72rem; color: rgba(255,255,255,.4); }
-
-    /* ── FOOTER ── */
-    footer {
-      background: var(--navy);
+    /* HERO */
+    .hero {
+      background: #0f2040;
+      color: white;
+      padding: 120px 30px 80px;
       text-align: center;
-      padding: 2rem;
-      font-size: .78rem;
-      color: rgba(255,255,255,.3);
-      font-family: var(--font-mono);
-      letter-spacing: .05em;
     }
 
-    /* ── RESPONSIVE ── */
-    @media (max-width: 720px) {
-      .hero-inner { grid-template-columns: 1fr; }
-      .hero-avatar { display: none; }
-      .main-grid { grid-template-columns: 1fr; padding: 2rem 1.25rem; }
-      .stats-bar-inner { flex-wrap: wrap; gap: 1rem; }
-      .stat { border-right: none; padding: 0; flex: 0 0 calc(50% - .5rem); }
-      nav { padding: 0 1.25rem; }
-      .nav-links a { padding: .4rem .5rem; }
-      .hero { padding: 6rem 1.25rem 3rem; }
+    .hero h1 {
+      font-size: 3rem;
+      font-family: 'DM Serif Display', serif;
+      animation: fadeUp 1s ease;
     }
 
-    @media (prefers-reduced-motion: reduce) {
-      * { transition: none !important; }
+    .hero p {
+      opacity: 0.7;
+      margin-top: 10px;
+      animation: fadeUp 1.2s ease;
     }
+
+    /* SECTIONS */
+    section {
+      padding: 60px 30px;
+      max-width: 1000px;
+      margin: auto;
+    }
+
+    h2 {
+      font-family: 'DM Serif Display', serif;
+      margin-bottom: 20px;
+      color: #0f2040;
+    }
+
+    /* PROJECT CARD */
+    .project-card {
+      background: white;
+      padding: 20px;
+      margin-bottom: 20px;
+      border-radius: 10px;
+      border: 1px solid #e3e7ef;
+      transition: all 0.4s ease;
+      opacity: 0;
+      transform: translateY(20px);
+    }
+
+    .project-card.show {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    .project-card:hover {
+      transform: translateY(-8px);
+      box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+      border-color: #c8922a;
+    }
+
+    /* TAGS */
+    .tag {
+      display: inline-block;
+      font-size: 12px;
+      background: #eef1f7;
+      padding: 5px 10px;
+      margin: 3px;
+      border-radius: 5px;
+    }
+
+    /* CONTACT */
+    .contact a {
+      display: block;
+      margin: 5px 0;
+      color: #0f2040;
+      text-decoration: none;
+      transition: 0.3s;
+    }
+
+    .contact a:hover {
+      color: #c8922a;
+    }
+
+    /* ANIMATION */
+    @keyframes fadeUp {
+      from {
+        opacity: 0;
+        transform: translateY(20px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
   </style>
 </head>
+
 <body>
 
 <!-- NAV -->
 <nav>
-  <span class="nav-name">Sonia Aslam</span>
-  <ul class="nav-links">
-    <li><a href="#projects">Projects</a></li>
-    <li><a href="#experience">Experience</a></li>
-    <li><a href="#education">Education</a></li>
-    <li><a href="#contact">Contact</a></li>
-  </ul>
+  <div><b>Sonia Aslam</b></div>
+  <div class="nav-links">
+    <a href="#projects">Projects</a>
+    <a href="#contact">Contact</a>
+  </div>
 </nav>
 
 <!-- HERO -->
-<header class="hero">
-  <div class="hero-inner">
-    <div>
-      <div class="hero-eyebrow">
-        <div class="hero-eyebrow-line"></div>
-        <span>Electrical Engineer · AI Developer · Embedded Systems</span>
-      </div>
-      <h1>Sonia Aslam</h1>
-      <p class="hero-sub">
-        Final-year EE student at FAST-NUCES building at the intersection of
-        hardware and intelligence — from FPGA implementations to
-        AI-powered edge systems.
-      </p>
-      <div class="hero-pills">
-        <span class="pill">Python · C++ · Verilog</span>
-        <span class="pill">MATLAB · Simulink · Vivado</span>
-        <span class="pill">ML · Computer Vision</span>
-        <span class="pill">IoT · Embedded Systems</span>
-      </div>
-    </div>
-    <div class="hero-avatar"><span>SA</span></div>
-  </div>
-</header>
-
-<!-- STATS BAR -->
-<div class="stats-bar">
-  <div class="stats-bar-inner">
-    <div class="stat">
-      <div class="stat-val">5<em>+</em></div>
-      <div class="stat-label">Technical Projects</div>
-    </div>
-    <div class="stat">
-      <div class="stat-val">Dean's<em> List</em></div>
-      <div class="stat-label">Academic Honours</div>
-    </div>
-    <div class="stat">
-      <div class="stat-val">NTDC</div>
-      <div class="stat-label">Industry Internship</div>
-    </div>
-    <div class="stat">
-      <div class="stat-val">2026</div>
-      <div class="stat-label">Expected Graduation</div>
-    </div>
-  </div>
+<div class="hero">
+  <h1>Sonia Aslam</h1>
+  <p>Electrical Engineer | AI Developer | IoT Enthusiast</p>
 </div>
 
-<!-- MAIN CONTENT -->
-<div class="main-grid">
+<!-- PROJECTS -->
+<section id="projects">
+  <h2>Projects</h2>
 
-  <!-- LEFT COLUMN -->
-  <main class="main-left">
+  <div class="project-card">
+    <h3>Smart Receptionist Robot</h3>
+    <p>AI-powered edge device using Jetson Nano.</p>
+    <span class="tag">AI</span>
+    <span class="tag">IoT</span>
+  </div>
 
-    <!-- PROJECTS -->
-    <section id="projects">
-      <div class="sec-head">
-        <h2>Projects</h2>
-        <div class="sec-head-rule"></div>
-      </div>
+  <div class="project-card">
+    <h3>Plant Watering System</h3>
+    <p>ESP8266 based automatic irrigation system.</p>
+    <span class="tag">IoT</span>
+    <span class="tag">Embedded</span>
+  </div>
 
-      <div class="project-card">
-        <div class="project-header">
-          <h3>Smart Receptionist Robot</h3>
-          <div class="project-icon-badge">🤖</div>
-        </div>
-        <p>Autonomous AI-powered receptionist deployed on NVIDIA Jetson Nano for real-time customer interaction. Uses edge computing for local processing, enabling real-time responses and full offline functionality without cloud dependency.</p>
-        <div class="tags">
-          <span class="tag">Edge AI</span>
-          <span class="tag">NVIDIA Jetson Nano</span>
-          <span class="tag">Conversational AI</span>
-          <span class="tag">Computer Vision</span>
-          <span class="tag">Python</span>
-        </div>
-      </div>
+  <div class="project-card">
+    <h3>Fraud Detection System</h3>
+    <p>Machine learning model for fraud detection.</p>
+    <span class="tag">ML</span>
+    <span class="tag">Python</span>
+  </div>
+</section>
 
-      <div class="project-card">
-        <div class="project-header">
-          <h3>Credit Card Fraud Detection</h3>
-          <div class="project-icon-badge">🔐</div>
-        </div>
-        <p>ML classification pipeline built in Python/Jupyter to identify fraudulent transactions. Applied data preprocessing techniques, addressed class imbalance with resampling, and trained Logistic Regression and Decision Tree models.</p>
-        <div class="tags">
-          <span class="tag">Python</span>
-          <span class="tag">Scikit-learn</span>
-          <span class="tag">ML Classification</span>
-          <span class="tag">Jupyter Notebook</span>
-          <span class="tag">Data Preprocessing</span>
-        </div>
-      </div>
+<!-- CONTACT -->
+<section id="contact">
+  <h2>Contact</h2>
+  <div class="contact">
+    <a href="mailto:soniaaslam246@gmail.com">Email Me</a>
+    <a href="https://github.com/">GitHub</a>
+    <a href="https://linkedin.com/">LinkedIn</a>
+  </div>
+</section>
 
-      <div class="project-card">
-        <div class="project-header">
-          <h3>Automatic Plant Watering System</h3>
-          <div class="project-icon-badge">🌱</div>
-        </div>
-        <p>IoT-based system that continuously monitors soil moisture and autonomously activates a water pump when needed. Built on ESP8266 microcontroller with real-time sensor feedback for reliable hands-free operation.</p>
-        <div class="tags">
-          <span class="tag">IoT</span>
-          <span class="tag">ESP8266</span>
-          <span class="tag">Sensors</span>
-          <span class="tag">Embedded C</span>
-          <span class="tag">Arduino IDE</span>
-        </div>
-      </div>
+<!-- JS ANIMATION -->
+<script>
+const cards = document.querySelectorAll('.project-card');
 
-      <div class="project-card">
-        <div class="project-header">
-          <h3>Automatic Traffic Light Control System</h3>
-          <div class="project-icon-badge">🚦</div>
-        </div>
-        <p>Full PCB design of a traffic signal controller using BC547 transistor-based timing circuits. Implements Red / Yellow / Green LED sequencing with adjustable timing — taken from schematic design to tested physical board.</p>
-        <div class="tags">
-          <span class="tag">PCB Design</span>
-          <span class="tag">Transistor Circuits</span>
-          <span class="tag">Proteus</span>
-          <span class="tag">Hardware Design</span>
-        </div>
-      </div>
+const observer = new IntersectionObserver(entries => {
+  entries.forEach(entry => {
+    if (entry.isIntersecting) {
+      entry.target.classList.add('show');
+    }
+  });
+});
 
-      <div class="project-card">
-        <div class="project-header">
-          <h3>Smart Blind Assistance Cap</h3>
-          <div class="project-icon-badge">🧢</div>
-        </div>
-        <p>Wearable assistive device for visually impaired users. Detects nearby obstacles in real time using ultrasonic sensors connected to Arduino Uno, providing immediate physical feedback to enhance situational awareness.</p>
-        <div class="tags">
-          <span class="tag">Arduino Uno</span>
-          <span class="tag">Ultrasonic Sensors</span>
-          <span class="tag">Assistive Technology</span>
-          <span class="tag">Wearables</span>
-        </div>
-      </div>
-    </section>
-
-    <!-- EXPERIENCE -->
-    <section id="experience" style="margin-top:2.5rem">
-      <div class="sec-head">
-        <h2>Experience</h2>
-        <div class="sec-head-rule"></div>
-      </div>
-      <div class="timeline">
-        <div class="tl-item">
-          <div class="tl-dot"></div>
-          <div class="tl-body">
-            <h3>Summer Intern</h3>
-            <div class="tl-org">National Transmission & Despatch Company (NTDC)</div>
-            <span class="tl-date">Jul – Aug 2024 · Dera Ghazi Khan</span>
-            <ul>
-              <li>Observed high-voltage equipment operation and grid station functioning</li>
-              <li>Studied load management strategies and industry-standard safety procedures</li>
-              <li>Gained exposure to Pakistan's national power transmission infrastructure</li>
-            </ul>
-          </div>
-        </div>
-        <div class="tl-item">
-          <div class="tl-dot"></div>
-          <div class="tl-body">
-            <h3>Industrial Visit</h3>
-            <div class="tl-org">Ibrahim Fibres Limited</div>
-            <span class="tl-date">During Studies</span>
-            <ul>
-              <li>Observed large-scale textile manufacturing and industrial automation systems</li>
-              <li>Gained hands-on understanding of quality control procedures in production</li>
-            </ul>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- EDUCATION -->
-    <section id="education" style="margin-top:2.5rem">
-      <div class="sec-head">
-        <h2>Education</h2>
-        <div class="sec-head-rule"></div>
-      </div>
-      <div class="edu-card">
-        <div class="degree">Bachelor of Science — Electrical Engineering</div>
-        <div class="school">FAST-NUCES · Chiniot-Faisalabad Campus</div>
-        <div class="period">Aug 2022 – Jun 2026</div>
-      </div>
-    </section>
-
-  </main>
-
-  <!-- RIGHT SIDEBAR -->
-  <aside class="main-right" id="contact">
-
-    <!-- CONTACT -->
-    <div class="widget">
-      <h3>Contact</h3>
-      <div class="contact-item">
-        <span class="contact-icon">✉</span>
-        <a href="mailto:soniaaslam246@gmail.com">soniaaslam246@gmail.com</a>
-      </div>
-      <div class="contact-item">
-        <span class="contact-icon">📞</span>
-        <a href="tel:+923362203242">+92 336 220 3242</a>
-      </div>
-      <div class="contact-item">
-        <span class="contact-icon">🔗</span>
-        <a href="https://www.linkedin.com/in/soniaaslam-31239628a" target="_blank">LinkedIn Profile</a>
-      </div>
-      <div class="contact-item">
-        <span class="contact-icon">📍</span>
-        <span>Dera Ghazi Khan, Pakistan</span>
-      </div>
-    </div>
-
-    <!-- HONOURS -->
-    <div class="widget">
-      <h3>Honours & Awards</h3>
-      <div class="honor-item">
-        <span class="honor-star">★</span>
-        <span>Dean's List — FAST-NUCES, Chiniot-Faisalabad Campus</span>
-      </div>
-      <div class="honor-item">
-        <span class="honor-star">★</span>
-        <span>Certificate — Model-Based Digital System Design using MATLAB, Simulink & HDL Coder for FPGA Implementation</span>
-      </div>
-    </div>
-
-    <!-- SKILLS -->
-    <div class="widget">
-      <h3>Skills & Tools</h3>
-      <div class="skill-group">
-        <div class="skill-group-label">Languages</div>
-        <div class="skill-pills">
-          <span class="skill-pill">Python</span>
-          <span class="skill-pill">C++</span>
-          <span class="skill-pill">C#</span>
-          <span class="skill-pill">Verilog</span>
-          <span class="skill-pill">Assembly</span>
-        </div>
-      </div>
-      <div class="skill-group">
-        <div class="skill-group-label">EDA & Engineering Tools</div>
-        <div class="skill-pills">
-          <span class="skill-pill">MATLAB</span>
-          <span class="skill-pill">Simulink</span>
-          <span class="skill-pill">Vivado</span>
-          <span class="skill-pill">Proteus</span>
-          <span class="skill-pill">Visio</span>
-          <span class="skill-pill">Cisco Packet Tracer</span>
-        </div>
-      </div>
-      <div class="skill-group">
-        <div class="skill-group-label">Development Platforms</div>
-        <div class="skill-pills">
-          <span class="skill-pill">Arduino IDE</span>
-          <span class="skill-pill">Jupyter</span>
-          <span class="skill-pill">VS Code</span>
-          <span class="skill-pill">Google Colab</span>
-          <span class="skill-pill">Ubuntu</span>
-        </div>
-      </div>
-      <div class="skill-group">
-        <div class="skill-group-label">Focus Areas</div>
-        <div class="skill-pills">
-          <span class="skill-pill">Embedded Systems</span>
-          <span class="skill-pill">Machine Learning</span>
-          <span class="skill-pill">Computer Vision</span>
-          <span class="skill-pill">FPGA Design</span>
-          <span class="skill-pill">IoT</span>
-        </div>
-      </div>
-    </div>
-
-  </aside>
-</div>
-
-<footer>
-  Sonia Aslam · Electrical Engineer · FAST-NUCES · 2025
-</footer>
+cards.forEach(card => {
+  observer.observe(card);
+});
+</script>
 
 </body>
 </html>
