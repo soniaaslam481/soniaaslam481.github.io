@@ -1,0 +1,626 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Sonia Aslam — Electrical Engineer & AI Developer</title>
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet"/>
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --bg:        #0b0f1a;
+      --surface:   #111827;
+      --border:    #1e2d40;
+      --accent:    #38bdf8;
+      --accent2:   #818cf8;
+      --text:      #e2e8f0;
+      --muted:     #64748b;
+      --card-bg:   #131d2e;
+      --tag-bg:    #0f2035;
+      --font-head: 'Space Grotesk', sans-serif;
+      --font-mono: 'Space Mono', monospace;
+    }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      background: var(--bg);
+      color: var(--text);
+      font-family: var(--font-head);
+      line-height: 1.6;
+      overflow-x: hidden;
+    }
+
+    /* ── NAV ── */
+    nav {
+      position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+      display: flex; justify-content: space-between; align-items: center;
+      padding: 1rem 2rem;
+      background: rgba(11,15,26,0.85);
+      backdrop-filter: blur(12px);
+      border-bottom: 1px solid var(--border);
+    }
+    .nav-logo {
+      font-family: var(--font-mono);
+      font-size: .85rem;
+      color: var(--accent);
+      letter-spacing: .08em;
+    }
+    .nav-links { display: flex; gap: 2rem; list-style: none; }
+    .nav-links a {
+      color: var(--muted); text-decoration: none; font-size: .9rem;
+      transition: color .2s;
+    }
+    .nav-links a:hover { color: var(--accent); }
+
+    /* ── HERO ── */
+    .hero {
+      min-height: 100vh;
+      display: flex; flex-direction: column; justify-content: center;
+      padding: 7rem 2rem 4rem;
+      position: relative;
+      overflow: hidden;
+    }
+    .hero-grid {
+      position: absolute; inset: 0;
+      background-image:
+        linear-gradient(rgba(56,189,248,.04) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(56,189,248,.04) 1px, transparent 1px);
+      background-size: 48px 48px;
+      mask-image: radial-gradient(ellipse 80% 60% at 50% 50%, black 30%, transparent 100%);
+    }
+    .hero-glow {
+      position: absolute; top: 20%; left: 50%; transform: translateX(-50%);
+      width: 600px; height: 300px;
+      background: radial-gradient(ellipse, rgba(56,189,248,.12) 0%, transparent 70%);
+      pointer-events: none;
+    }
+    .hero-inner { max-width: 900px; margin: 0 auto; position: relative; }
+    .hero-tag {
+      display: inline-block;
+      font-family: var(--font-mono);
+      font-size: .75rem;
+      color: var(--accent);
+      background: rgba(56,189,248,.08);
+      border: 1px solid rgba(56,189,248,.2);
+      padding: .3rem .75rem;
+      border-radius: 2rem;
+      margin-bottom: 1.5rem;
+      letter-spacing: .1em;
+    }
+    .hero h1 {
+      font-size: clamp(2.8rem, 7vw, 5.5rem);
+      font-weight: 700;
+      line-height: 1.05;
+      letter-spacing: -.02em;
+      margin-bottom: 1.25rem;
+    }
+    .hero h1 .name-accent { color: var(--accent); }
+    .hero-sub {
+      font-size: 1.15rem;
+      color: var(--muted);
+      max-width: 540px;
+      margin-bottom: 2.5rem;
+      line-height: 1.7;
+    }
+    .hero-cta { display: flex; gap: 1rem; flex-wrap: wrap; }
+    .btn {
+      display: inline-flex; align-items: center; gap: .5rem;
+      padding: .7rem 1.5rem;
+      border-radius: .4rem;
+      font-family: var(--font-head);
+      font-size: .9rem;
+      font-weight: 500;
+      text-decoration: none;
+      transition: all .2s;
+      cursor: pointer;
+    }
+    .btn-primary {
+      background: var(--accent);
+      color: #0b0f1a;
+      border: none;
+    }
+    .btn-primary:hover { background: #7dd3fc; transform: translateY(-1px); }
+    .btn-ghost {
+      background: transparent;
+      color: var(--text);
+      border: 1px solid var(--border);
+    }
+    .btn-ghost:hover { border-color: var(--accent); color: var(--accent); }
+
+    .hero-stats {
+      display: flex; gap: 3rem; margin-top: 4rem;
+      padding-top: 2rem;
+      border-top: 1px solid var(--border);
+      flex-wrap: wrap;
+    }
+    .stat-val {
+      font-family: var(--font-mono);
+      font-size: 2rem;
+      font-weight: 700;
+      color: var(--accent);
+    }
+    .stat-label { font-size: .8rem; color: var(--muted); margin-top: .2rem; }
+
+    /* ── SECTIONS ── */
+    section { padding: 5rem 2rem; }
+    .section-inner { max-width: 900px; margin: 0 auto; }
+    .section-label {
+      font-family: var(--font-mono);
+      font-size: .72rem;
+      color: var(--accent2);
+      letter-spacing: .15em;
+      text-transform: uppercase;
+      margin-bottom: .75rem;
+    }
+    .section-title {
+      font-size: clamp(1.8rem, 4vw, 2.6rem);
+      font-weight: 700;
+      letter-spacing: -.02em;
+      margin-bottom: 3rem;
+      line-height: 1.1;
+    }
+    .divider {
+      width: 100%; height: 1px;
+      background: linear-gradient(90deg, var(--accent) 0%, transparent 80%);
+      margin-bottom: 3rem;
+    }
+
+    /* ── ABOUT ── */
+    .about-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 3rem;
+      align-items: start;
+    }
+    .about-text { font-size: 1.05rem; color: #94a3b8; line-height: 1.8; }
+    .about-text p + p { margin-top: 1rem; }
+    .skills-panel {}
+    .skills-panel h3 {
+      font-size: .85rem;
+      font-family: var(--font-mono);
+      color: var(--muted);
+      letter-spacing: .1em;
+      margin-bottom: 1rem;
+      text-transform: uppercase;
+    }
+    .skills-list { display: flex; flex-wrap: wrap; gap: .5rem; }
+    .skill-tag {
+      font-family: var(--font-mono);
+      font-size: .75rem;
+      padding: .3rem .7rem;
+      background: var(--tag-bg);
+      border: 1px solid rgba(56,189,248,.15);
+      color: var(--accent);
+      border-radius: .25rem;
+    }
+    .skills-group { margin-bottom: 1.75rem; }
+
+    /* ── PROJECTS ── */
+    .projects-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(360px, 1fr));
+      gap: 1.5rem;
+    }
+    .project-card {
+      background: var(--card-bg);
+      border: 1px solid var(--border);
+      border-radius: .6rem;
+      padding: 1.75rem;
+      transition: border-color .25s, transform .25s;
+      display: flex; flex-direction: column;
+    }
+    .project-card:hover {
+      border-color: rgba(56,189,248,.4);
+      transform: translateY(-3px);
+    }
+    .project-icon {
+      font-size: 1.5rem; margin-bottom: 1rem;
+      width: 2.8rem; height: 2.8rem;
+      background: rgba(56,189,248,.06);
+      border: 1px solid rgba(56,189,248,.12);
+      border-radius: .4rem;
+      display: flex; align-items: center; justify-content: center;
+    }
+    .project-card h3 {
+      font-size: 1.05rem;
+      font-weight: 600;
+      margin-bottom: .6rem;
+      color: var(--text);
+    }
+    .project-card p { font-size: .9rem; color: var(--muted); line-height: 1.65; flex: 1; }
+    .project-tags { display: flex; flex-wrap: wrap; gap: .4rem; margin-top: 1.25rem; }
+    .project-tag {
+      font-family: var(--font-mono);
+      font-size: .68rem;
+      padding: .2rem .5rem;
+      background: var(--tag-bg);
+      color: var(--accent2);
+      border-radius: .2rem;
+    }
+
+    /* ── EXPERIENCE ── */
+    .timeline { display: flex; flex-direction: column; gap: 2rem; }
+    .timeline-item {
+      display: grid;
+      grid-template-columns: 140px 1fr;
+      gap: 1.5rem;
+      position: relative;
+    }
+    .timeline-item::before {
+      content: '';
+      position: absolute;
+      left: 140px;
+      top: .6rem; bottom: -2rem;
+      width: 1px;
+      background: var(--border);
+    }
+    .timeline-item:last-child::before { display: none; }
+    .timeline-date {
+      font-family: var(--font-mono);
+      font-size: .75rem;
+      color: var(--muted);
+      padding-top: .25rem;
+      text-align: right;
+    }
+    .timeline-content {
+      padding-left: 1.5rem;
+      position: relative;
+    }
+    .timeline-content::before {
+      content: '';
+      position: absolute;
+      left: -.3rem; top: .4rem;
+      width: .6rem; height: .6rem;
+      background: var(--accent);
+      border-radius: 50%;
+      box-shadow: 0 0 10px var(--accent);
+    }
+    .timeline-content h3 { font-size: 1.05rem; font-weight: 600; margin-bottom: .25rem; }
+    .timeline-content .org { font-size: .85rem; color: var(--accent); margin-bottom: .75rem; }
+    .timeline-content ul { list-style: none; display: flex; flex-direction: column; gap: .4rem; }
+    .timeline-content li {
+      font-size: .9rem; color: var(--muted);
+      padding-left: 1rem; position: relative;
+    }
+    .timeline-content li::before {
+      content: '→'; position: absolute; left: 0;
+      color: var(--accent2); font-size: .75rem;
+    }
+
+    /* ── EDUCATION ── */
+    .edu-card {
+      background: var(--card-bg);
+      border: 1px solid var(--border);
+      border-radius: .6rem;
+      padding: 2rem;
+      display: grid;
+      grid-template-columns: 1fr auto;
+      gap: 1rem;
+      align-items: center;
+    }
+    .edu-degree { font-size: 1.2rem; font-weight: 600; margin-bottom: .3rem; }
+    .edu-school { font-size: .95rem; color: var(--accent); margin-bottom: .5rem; }
+    .edu-detail { font-size: .85rem; color: var(--muted); }
+    .honor-badge {
+      font-family: var(--font-mono);
+      font-size: .7rem;
+      padding: .4rem .9rem;
+      background: rgba(129,140,248,.08);
+      border: 1px solid rgba(129,140,248,.2);
+      color: var(--accent2);
+      border-radius: 2rem;
+      text-align: center;
+      white-space: nowrap;
+    }
+
+    /* ── CONTACT ── */
+    .contact-wrap {
+      background: var(--card-bg);
+      border: 1px solid var(--border);
+      border-radius: .8rem;
+      padding: 3rem;
+      text-align: center;
+    }
+    .contact-wrap p { color: var(--muted); margin-bottom: 2rem; font-size: 1rem; }
+    .contact-links { display: flex; gap: 1rem; justify-content: center; flex-wrap: wrap; }
+
+    /* ── FOOTER ── */
+    footer {
+      border-top: 1px solid var(--border);
+      padding: 2rem;
+      text-align: center;
+      font-family: var(--font-mono);
+      font-size: .75rem;
+      color: var(--muted);
+    }
+
+    /* ── RESPONSIVE ── */
+    @media (max-width: 640px) {
+      nav { padding: 1rem; }
+      .nav-links { gap: 1rem; }
+      .about-grid { grid-template-columns: 1fr; }
+      .timeline-item { grid-template-columns: 1fr; }
+      .timeline-item::before { display: none; }
+      .timeline-date { text-align: left; }
+      .edu-card { grid-template-columns: 1fr; }
+      .projects-grid { grid-template-columns: 1fr; }
+      section { padding: 3.5rem 1.25rem; }
+      .contact-wrap { padding: 2rem 1.25rem; }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      *, *::before, *::after { transition: none !important; animation: none !important; }
+    }
+  </style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <span class="nav-logo">sonia.aslam</span>
+  <ul class="nav-links">
+    <li><a href="#about">About</a></li>
+    <li><a href="#projects">Projects</a></li>
+    <li><a href="#experience">Experience</a></li>
+    <li><a href="#contact">Contact</a></li>
+  </ul>
+</nav>
+
+<!-- HERO -->
+<section class="hero" id="home">
+  <div class="hero-grid"></div>
+  <div class="hero-glow"></div>
+  <div class="hero-inner">
+    <span class="hero-tag">⚡ Electrical Engineer · AI Developer · Embedded Systems</span>
+    <h1>
+      Building the edge<br>
+      between <span class="name-accent">hardware</span><br>
+      and <span class="name-accent">intelligence.</span>
+    </h1>
+    <p class="hero-sub">
+      I'm <strong style="color:var(--text)">Sonia Aslam</strong> — a final-year EE student at FAST-NUCES who builds
+      things that live at the intersection of circuits, code, and AI.
+      From FPGA implementations to autonomous robot receptionists.
+    </p>
+    <div class="hero-cta">
+      <a href="#projects" class="btn btn-primary">View Projects</a>
+      <a href="mailto:soniaaslam246@gmail.com" class="btn btn-ghost">Get in Touch</a>
+    </div>
+    <div class="hero-stats">
+      <div>
+        <div class="stat-val">5+</div>
+        <div class="stat-label">Technical Projects</div>
+      </div>
+      <div>
+        <div class="stat-val">EE</div>
+        <div class="stat-label">Dean's List · FAST-NUCES</div>
+      </div>
+      <div>
+        <div class="stat-val">NTDC</div>
+        <div class="stat-label">Industry Internship</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ABOUT -->
+<section id="about">
+  <div class="section-inner">
+    <p class="section-label">// 01 — About</p>
+    <h2 class="section-title">Where circuits meet code.</h2>
+    <div class="divider"></div>
+    <div class="about-grid">
+      <div class="about-text">
+        <p>
+          I'm a final-year Electrical Engineering student at FAST-NUCES, Chiniot-Faisalabad Campus,
+          graduating in June 2026. My work sits at the intersection of embedded systems, machine learning,
+          and real-world hardware — building things that actually do something in the physical world.
+        </p>
+        <p>
+          I've deployed AI on edge hardware (NVIDIA Jetson Nano), designed PCBs from scratch,
+          built IoT systems, and trained ML models — all while maintaining a place on the Dean's List.
+        </p>
+        <p>
+          I hold a Certificate of Participation in Model-Based Digital System Design using MATLAB,
+          Simulink, and HDL Coder for FPGA Implementation, and I've gained hands-on industry
+          experience at the National Transmission & Despatch Company (NTDC).
+        </p>
+      </div>
+      <div class="skills-panel">
+        <div class="skills-group">
+          <h3>Languages</h3>
+          <div class="skills-list">
+            <span class="skill-tag">Python</span>
+            <span class="skill-tag">C++</span>
+            <span class="skill-tag">C#</span>
+            <span class="skill-tag">Verilog</span>
+            <span class="skill-tag">Assembly</span>
+          </div>
+        </div>
+        <div class="skills-group">
+          <h3>Tools & Platforms</h3>
+          <div class="skills-list">
+            <span class="skill-tag">MATLAB</span>
+            <span class="skill-tag">Simulink</span>
+            <span class="skill-tag">Vivado</span>
+            <span class="skill-tag">Arduino IDE</span>
+            <span class="skill-tag">Jupyter</span>
+            <span class="skill-tag">Proteus</span>
+            <span class="skill-tag">VS Code</span>
+            <span class="skill-tag">Cisco Packet Tracer</span>
+            <span class="skill-tag">Google Colab</span>
+            <span class="skill-tag">Ubuntu</span>
+          </div>
+        </div>
+        <div class="skills-group">
+          <h3>Focus Areas</h3>
+          <div class="skills-list">
+            <span class="skill-tag">Embedded Systems</span>
+            <span class="skill-tag">Machine Learning</span>
+            <span class="skill-tag">Computer Vision</span>
+            <span class="skill-tag">AI Integration</span>
+            <span class="skill-tag">FPGA Design</span>
+            <span class="skill-tag">IoT</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PROJECTS -->
+<section id="projects" style="background: var(--surface);">
+  <div class="section-inner">
+    <p class="section-label">// 02 — Projects</p>
+    <h2 class="section-title">Things I've built.</h2>
+    <div class="divider"></div>
+    <div class="projects-grid">
+
+      <div class="project-card">
+        <div class="project-icon">🤖</div>
+        <h3>Smart Receptionist Robot</h3>
+        <p>Autonomous AI-powered receptionist deployed on NVIDIA Jetson Nano for real-time customer interaction. Local processing via edge computing enables real-time responses and full offline functionality.</p>
+        <div class="project-tags">
+          <span class="project-tag">Edge AI</span>
+          <span class="project-tag">NVIDIA Jetson Nano</span>
+          <span class="project-tag">Conversational AI</span>
+          <span class="project-tag">Computer Vision</span>
+        </div>
+      </div>
+
+      <div class="project-card">
+        <div class="project-icon">🔍</div>
+        <h3>Credit Card Fraud Detection</h3>
+        <p>ML-based fraud detection pipeline built in Python/Jupyter Notebook. Applied data preprocessing, handled class imbalance, and trained classification models including Logistic Regression and Decision Trees.</p>
+        <div class="project-tags">
+          <span class="project-tag">Python</span>
+          <span class="project-tag">Scikit-learn</span>
+          <span class="project-tag">ML Classification</span>
+          <span class="project-tag">Jupyter</span>
+        </div>
+      </div>
+
+      <div class="project-card">
+        <div class="project-icon">🌱</div>
+        <h3>Automatic Plant Watering System</h3>
+        <p>IoT system that monitors soil moisture and autonomously controls a water pump. Built on ESP8266 with real-time sensor feedback — no manual watering required.</p>
+        <div class="project-tags">
+          <span class="project-tag">IoT</span>
+          <span class="project-tag">ESP8266</span>
+          <span class="project-tag">Sensors</span>
+          <span class="project-tag">Embedded C</span>
+        </div>
+      </div>
+
+      <div class="project-card">
+        <div class="project-icon">🚦</div>
+        <h3>Automatic Traffic Light Control System</h3>
+        <p>Full PCB-designed traffic control system using BC547 transistor-based timing circuits. Implements Red / Yellow / Green LED signal sequencing with adjustable timing — designed and tested from schematic to board.</p>
+        <div class="project-tags">
+          <span class="project-tag">PCB Design</span>
+          <span class="project-tag">Transistor Circuits</span>
+          <span class="project-tag">Proteus</span>
+          <span class="project-tag">Hardware</span>
+        </div>
+      </div>
+
+      <div class="project-card">
+        <div class="project-icon">🧢</div>
+        <h3>Smart Blind Assistance Cap</h3>
+        <p>Wearable assistive technology for visually impaired individuals. Detects obstacles in real time using ultrasonic sensors and Arduino Uno, providing haptic or audio feedback to the user.</p>
+        <div class="project-tags">
+          <span class="project-tag">Arduino Uno</span>
+          <span class="project-tag">Ultrasonic Sensors</span>
+          <span class="project-tag">Assistive Tech</span>
+          <span class="project-tag">Wearables</span>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- EXPERIENCE -->
+<section id="experience">
+  <div class="section-inner">
+    <p class="section-label">// 03 — Experience</p>
+    <h2 class="section-title">Where I've been.</h2>
+    <div class="divider"></div>
+    <div class="timeline">
+
+      <div class="timeline-item">
+        <div class="timeline-date">Jul – Aug 2024</div>
+        <div class="timeline-content">
+          <h3>Summer Intern</h3>
+          <div class="org">National Transmission & Despatch Company (NTDC) · Dera Ghazi Khan</div>
+          <ul>
+            <li>Observed high-voltage equipment and grid station functioning</li>
+            <li>Learned load management strategies and industry safety procedures</li>
+            <li>Gained practical exposure to Pakistan's national power transmission infrastructure</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="timeline-item">
+        <div class="timeline-date">During Studies</div>
+        <div class="timeline-content">
+          <h3>Industrial Visit</h3>
+          <div class="org">Ibrahim Fibres Limited</div>
+          <ul>
+            <li>Observed textile manufacturing processes and industrial automation systems</li>
+            <li>Gained exposure to quality control procedures in large-scale production</li>
+            <li>Applied classroom EE concepts to a real-world industrial environment</li>
+          </ul>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- EDUCATION -->
+<section style="background: var(--surface);" id="education">
+  <div class="section-inner">
+    <p class="section-label">// 04 — Education</p>
+    <h2 class="section-title">Academic background.</h2>
+    <div class="divider"></div>
+    <div class="edu-card">
+      <div>
+        <div class="edu-degree">BS in Electrical Engineering</div>
+        <div class="edu-school">FAST-NUCES — Chiniot-Faisalabad Campus</div>
+        <div class="edu-detail">Aug 2022 – Jun 2026</div>
+        <div style="margin-top:1rem; display:flex; gap:.5rem; flex-wrap:wrap;">
+          <span class="skill-tag" style="color:var(--accent2); border-color:rgba(129,140,248,.2);">🏆 Dean's List Holder</span>
+          <span class="skill-tag" style="color:var(--accent2); border-color:rgba(129,140,248,.2);">📜 MATLAB / Simulink / HDL Coder Certificate</span>
+        </div>
+      </div>
+      <div class="honor-badge">Dean's<br>List</div>
+    </div>
+  </div>
+</section>
+
+<!-- CONTACT -->
+<section id="contact">
+  <div class="section-inner">
+    <p class="section-label">// 05 — Contact</p>
+    <h2 class="section-title">Let's connect.</h2>
+    <div class="divider"></div>
+    <div class="contact-wrap">
+      <p>Open to internships, research collaborations, and engineering opportunities.<br>Feel free to reach out — I'd love to talk.</p>
+      <div class="contact-links">
+        <a href="mailto:soniaaslam246@gmail.com" class="btn btn-primary">✉ soniaaslam246@gmail.com</a>
+        <a href="https://www.linkedin.com/in/soniaaslam-31239628a" target="_blank" class="btn btn-ghost">LinkedIn Profile</a>
+        <a href="tel:+923362203242" class="btn btn-ghost">📞 +92 336 220 3242</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <span>Built with care · Sonia Aslam · 2025</span>
+</footer>
+
+</body>
+</html>
